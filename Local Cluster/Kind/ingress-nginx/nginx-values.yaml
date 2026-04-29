@@ -1,0 +1,25 @@
+# local-gitops/Manifests/ingress/nginx-values.yaml
+
+controller:
+  # 1. Enable hostNetwork
+  hostNetwork: true
+  
+  # 2. THE FIX: Force the pod to use cluster DNS even when on the host network
+  dnsPolicy: ClusterFirstWithHostNet
+  
+  # 3. No LoadBalancer needed since it's on the host network
+  service:
+    type: ClusterIP
+
+  # 4. Target the specific node
+  nodeSelector:
+    ingress-ready: "true"
+
+  # 5. Allow scheduling on the control-plane
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Equal"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Equal"
+      effect: "NoSchedule"
