@@ -1,5 +1,10 @@
 ## 🐳 Step 2: Install Docker, Kubectl, and Kind
 
+> **What are these tools?** 
+> - **Docker** provides the container runtime engine.
+> - **Kubectl** is the command-line tool for interacting with the Kubernetes API.
+> - **Kind (Kubernetes in Docker)** allows you to run local Kubernetes clusters using Docker containers as nodes.
+
 ### 📦 Install Docker by running the following commands:
 
 ```bash

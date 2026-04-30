@@ -1,4 +1,7 @@
 ## 🕸️ Step 5: Install Cilium (The CNI)
+
+> **What is Cilium?** Cilium is an advanced networking, observability, and security solution for container workloads. It uses eBPF technology to provide high-performance networking and fine-grained network policies.
+
 ### We must install the network engine first so the nodes can reach a Ready state. We will use the Docker DNS bypass to ensure stability across reboots.
 
 ```bash 

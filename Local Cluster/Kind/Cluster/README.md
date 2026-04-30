@@ -1,5 +1,8 @@
 ## 🚀 Step 3: Create the Kind Cluster
 
+> **What are we doing here?** This step initializes your local Kubernetes cluster using Kind. We configure the cluster to support custom networking (by disabling the default CNI) and map host ports to allow Ingress traffic to reach our services.
+
+
 ### This configuration disables the default CNI and maps ports 80/443 to your host.
 ```yaml
 # kind-config.yaml

@@ -1,4 +1,7 @@
 ## ⚡ Step 7: Install ArgoCD
+
+> **What is ArgoCD?** ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications to your cluster by keeping its state in sync with configuration stored in a Git repository.
+
 ### Now we install the GitOps engine.
 ```bash
 # 1. Add the repository

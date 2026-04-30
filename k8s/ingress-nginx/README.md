@@ -1,4 +1,7 @@
 ## 🌐 Step 6: Install Ingress-NGINX
+
+> **What is Ingress-NGINX?** Ingress-NGINX is an Ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer. It manages external access to the services in a cluster, typically handling HTTP/HTTPS traffic routing.
+
 ### Next, we deploy the Ingress controller. We use hostNetwork: true to bind to the Kind node ports and ClusterFirstWithHostNet to ensure the controller can still see internal cluster services.
 
 ```bash
