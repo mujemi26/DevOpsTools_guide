@@ -3,6 +3,7 @@
 > **What is ArgoCD?** ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It automates the deployment of applications to your cluster by keeping its state in sync with configuration stored in a Git repository.
 
 ### Now we install the GitOps engine.
+
 ```bash
 # 1. Add the repository
 helm repo add argo https://argoproj.github.io/argo-helm
@@ -15,11 +16,13 @@ helm install argocd argo/argo-cd \
 ```
 
 ## 🔐 Step 8: Configure ArgoCD and Add Repository
+
 ### Now we add your repository to ArgoCD.
 
 ```bash
 # Get the admin password
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+helm upgrade argocd --set configs.params."server\.insecure"=true --set server.ingress.enabled=true  --set server.ingress.ingressClassName="nginx" -n argocd argo/argo-cd
 kubectl edit ingress argocd-server -n argocd
 ```
 
