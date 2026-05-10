@@ -1,18 +1,18 @@
 # clusters/in-cluster/cilium-values.yaml
 
 # 1. Explicitly define the API server location (CRITICAL)
-k8sServiceHost: "kind-control-plane"
+k8sServiceHost: "dev-cluster-control-plane"
 k8sServicePort: "6443"       # Usually 6443
 
 # 2. Enable the replacement
-kubeProxyReplacement: true
+kubeProxyReplacement: false
 
 # 3. Keep the rest as we discussed
 k8sClientRateLimit:
   qps: 50
   burst: 100
 l2announcements:
-  enabled: true
+  enabled: false
 hubble:
   enabled: false
   relay:
