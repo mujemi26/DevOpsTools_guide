@@ -1,12 +1,10 @@
-# local-gitops/Manifests/ingress/nginx-values.yaml
-
 controller:
   # 1. Enable hostNetwork
   hostNetwork: true
-  
+
   # 2. THE FIX: Force the pod to use cluster DNS even when on the host network
   dnsPolicy: ClusterFirstWithHostNet
-  
+
   # 3. No LoadBalancer needed since it's on the host network
   service:
     type: ClusterIP

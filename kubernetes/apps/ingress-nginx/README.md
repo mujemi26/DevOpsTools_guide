@@ -18,14 +18,26 @@ controller:
   service:
     type: ClusterIP
   nodeSelector:
-    ingress-ready: "true"
+    ingress-ready: "true" # tells the controller to run on nodes with this label
   tolerations:
-    - key: "node-role.kubernetes.io/control-plane"
+    - key: "node-role.kubernetes.io/control-plane" # allows the controller to run on control plane nodes
       operator: "Equal"
       effect: "NoSchedule"
-    - key: "node-role.kubernetes.io/master"
+    - key: "node-role.kubernetes.io/master" # allows the controller to run on master nodes
       operator: "Equal"
       effect: "NoSchedule"
+```
+
+### label your nodes
+
+```bash
+kubectl label nodes <node-name> ingress-ready=true
+```
+
+### make sure labels applied
+
+```bash
+kubectl get nodes --show-labels
 ```
 
 ```bash
