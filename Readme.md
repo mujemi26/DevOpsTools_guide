@@ -28,22 +28,22 @@ This repository contains detailed installation guides for:
 ## 📚 **Available Guides**
 
 ### ☸️ **General Kubernetes & Self-Hosted Clusters**
-- 📖 **[Kubernetes Basics Guide](k8s/k8s.md)** - Introduction to Kubernetes core concepts, architecture, and object types
-- 🖥️ **[Self-hosted K8s Installation Guide](k8s/Self-hosted/installation_guide.md)** - Complete multi-node cluster setup using `kubeadm`
-- 📦 **[Helm Setup](k8s/Helm/README.md)** - Package manager configuration
-- 🌐 **[Cilium CNI Setup](k8s/CNI/README.md)** - Advanced networking and security configuration
-- 🚦 **[Ingress-NGINX Setup](k8s/ingress-nginx/README.md)** - Traffic routing configuration
-- ⚡ **[ArgoCD Setup](k8s/ArgoCD/README.md)** - Continuous Delivery configuration
+- 📖 **[Kubernetes Basics Guide](docs/kubernetes-basics.md)** - Introduction to Kubernetes core concepts, architecture, and object types
+- 🖥️ **[Self-hosted K8s Installation Guide](kubernetes/clusters/self-hosted/installation_guide.md)** - Complete multi-node cluster setup using `kubeadm`
+- 📦 **[Helm Setup](kubernetes/apps/helm/README.md)** - Package manager configuration
+- 🌐 **[Cilium CNI Setup](kubernetes/apps/cilium/README.md)** - Advanced networking and security configuration
+- 🚦 **[Ingress-NGINX Setup](kubernetes/apps/ingress-nginx/README.md)** - Traffic routing configuration
+- ⚡ **[ArgoCD Setup](kubernetes/apps/argocd/README.md)** - Continuous Delivery configuration
 
 ### 🏗️ **Local Kubernetes Cluster Setup (Kind)**
-- 📋 **[Complete Cluster Setup Index](Local%20Cluster/Kind/README.md)** - Full local cluster setup guide and index
-  - 🐙 **[Git Installation](Local%20Cluster/Kind/Git/README.md)**
-  - 🐳 **[Prerequisites (Docker, Kubectl, Kind)](Local%20Cluster/Kind/Prerequisites/README.md)**
-  - 🖥️ **[Kind Cluster Creation](Local%20Cluster/Kind/Cluster/README.md)**
-  - 📦 **[Helm Installation](Local%20Cluster/Kind/Helm/README.md)**
-  - 🌐 **[Cilium CNI Setup](Local%20Cluster/Kind/CNI/README.md)**
-  - 🚦 **[Ingress-NGINX Setup](Local%20Cluster/Kind/ingress-nginx/README.md)**
-  - ⚡ **[ArgoCD Setup](Local%20Cluster/Kind/ArgoCD/README.md)**
+- 📋 **[Complete Cluster Setup Index](kubernetes/clusters/kind/Setup.md)** - Full local cluster setup guide and index
+  - 🐙 **[Git Installation](docs/kind/Git.md)**
+  - 🐳 **[Prerequisites (Docker, Kubectl, Kind)](docs/kind/Prerequisites.md)**
+  - 🖥️ **[Kind Cluster Creation](docs/kind/Cluster.md)**
+  - 📦 **[Helm Installation](kubernetes/apps/helm/README-kind.md)**
+  - 🌐 **[Cilium CNI Setup](kubernetes/apps/cilium/README.md)**
+  - 🚦 **[Ingress-NGINX Setup](kubernetes/apps/ingress-nginx/README.md)**
+  - ⚡ **[ArgoCD Setup](kubernetes/apps/argocd/README.md)**
 
 *More guides coming soon...*
 

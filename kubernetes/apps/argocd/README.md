@@ -22,31 +22,29 @@ helm install argocd argo/argo-cd \
 ```bash
 # Get the admin password
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-<<<<<<< HEAD
-helm upgrade argocd --set configs.params."server\.insecure"=true --set server.ingress.enabled=true  --set server.ingress.ingressClassName="nginx" -n argocd argo/argo-cd
-=======
+
+# Upgrade ArgoCD with Ingress enabled
+helm upgrade argocd argo/argo-cd \
+  --namespace argocd \
+  --set configs.params."server\.insecure"=true \
+  --set server.ingress.enabled=true \
+  --set server.ingress.ingressClassName="nginx"
 ```
 
-### ⚙️ Return the Helm command enabling Ingress and the other required options:
+### ⚙️ Configure Ingress Host
+
+Edit the default ingress to set your desired URL:
 
 ```bash
-helm upgrade argocd --set configs.params."server\.insecure"=true --set server.ingress.enabled=true  --set server.ingress.ingressClassName="nginx" -n argocd argo/argo-cd
-```
-
-## 🔧 Workaround: Argo's URL are not opening?
-
-- Edit default ingress and put your url name.
-
-```bash
->>>>>>> 1d15285cd847bac7a7c1e88a2a986bbb420d445b
 kubectl edit ingress argocd-server -n argocd
 ```
 
+Example configuration:
 ```yaml
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd.ex280.example.local # change me as you like to name your argo gui
+  - host: argocd.ex280.example.local # Change this to your preferred domain
     http:
       paths:
       - backend:
@@ -56,16 +54,13 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-status:
-  loadBalancer:
-    ingress:
-    - hostname: localhost
 ```
 
-- Navigate to https://github.com/argoproj/argo-cd/releases/latest to get the Argo CD CLI.
-- Scroll down till you find the downloadable files.
-- Copy the link to the Linux amd64 file.
-- Install Argo CD CLI by running the following commands:
+## 🔧 Argo CD CLI Installation
+
+1. Navigate to the [ArgoCD Releases](https://github.com/argoproj/argo-cd/releases/latest) page.
+2. Download the `argocd-linux-amd64` binary.
+3. Install it:
 
 ```bash
 wget https://github.com/argoproj/argo-cd/releases/download/<latest_version>/argocd-linux-amd64
@@ -74,9 +69,11 @@ sudo chmod +x /usr/local/bin/argocd
 argocd version --client
 ```
 
+## 🚀 Login and Add Repository
+
 ```bash
-# Login to ArgoCD
-argocd login localhost # use your domain you set in the ingress and /etc/hosts
+# Login to ArgoCD (use the domain set in ingress or localhost with port-forward)
+argocd login localhost 
 
 # Add your repository
 argocd repo add "https://github.com/mujemi26/local-gitops.git" \
